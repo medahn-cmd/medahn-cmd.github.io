@@ -3,14 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>지역사회기반 교육과정 사례 작성 워크시트</title>
+    <title>지역사회기반 교육과정 소개</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <main class="page">
       <header class="hero">
-        <h1>지역사회기반 교육과정 사례 작성 워크시트</h1>
-        <p>주요 교육과정 모델 유형을 바탕으로 사례를 간단히 정리하는 1페이지 양식</p>
+        <h1>지역사회기반 교육과정 소개</h1>
       </header>
 
       <form id="worksheetForm" class="worksheet">
@@ -53,6 +52,7 @@
               <legend>학점</legend>
               <label><input type="radio" name="creditsType" value="있음" /> 있음</label>
               <input class="credit-input" name="credits" type="text" aria-label="학점 수" />
+              <span class="credit-unit">학점</span>
               <label><input type="radio" name="creditsType" value="없음" /> 없음</label>
             </fieldset>
           </div>
@@ -62,24 +62,30 @@
           <h2><span>2.</span> 교육과정 모델 선택</h2>
           <div class="model-grid">
             <label class="model-card blue">
-              <input type="radio" name="model" value="Model 01 지역기반 통합 프리셉션형" required />
+              <input type="checkbox" name="model" value="Model 01 지역기반 통합 프리셉션형" />
               <strong><span>Model 01</span> 지역기반 통합 프리셉션형</strong>
               <em>핵심: 지역-임상 통합 경험</em>
             </label>
             <label class="model-card teal">
-              <input type="radio" name="model" value="Model 02 지역사회보건 건강문제 해결형" />
+              <input type="checkbox" name="model" value="Model 02 지역사회보건 건강문제 해결형" />
               <strong><span>Model 02</span> 지역사회보건 건강문제 해결형</strong>
               <em>핵심: 건강문제 분석 및 보건기획 역량</em>
             </label>
             <label class="model-card purple">
-              <input type="radio" name="model" value="Model 03 지역공공보건 임상몰입형" />
+              <input type="checkbox" name="model" value="Model 03 지역공공보건 임상몰입형" />
               <strong><span>Model 03</span> 지역공공보건 임상몰입형</strong>
               <em>핵심: 공공병원 연계 임상경험</em>
             </label>
             <label class="model-card orange">
-              <input type="radio" name="model" value="Model 04 지역사회 계열성(일차의료) 중심형" />
+              <input type="checkbox" name="model" value="Model 04 지역사회 계열성(일차의료) 중심형" />
               <strong><span>Model 04</span> 지역사회 계열성(일차의료) 중심형</strong>
               <em>핵심: 지역 개원가 현장형 일차의료 경험</em>
+            </label>
+            <label class="model-card navy other-model">
+              <input type="checkbox" name="model" value="모델(기타)" />
+              <strong><span>기타</span> 모델(기타)</strong>
+              <em>해당 모델을 직접 작성해주세요.</em>
+              <input class="other-model-input" name="modelOther" type="text" aria-label="기타 모델 작성" placeholder="기타 모델명 또는 설명" />
             </label>
           </div>
           <label class="wide-text">

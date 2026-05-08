@@ -161,8 +161,20 @@ input[type="radio"] {
   accent-color: var(--blue);
 }
 
+input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  accent-color: var(--blue);
+}
+
 .credit-input {
   width: 92px;
+}
+
+.credit-unit {
+  margin-left: -14px;
+  color: #1f2e49;
+  font-weight: 700;
 }
 
 .model-grid {
@@ -234,6 +246,19 @@ input[type="radio"] {
 .model-card:has(input:checked) {
   background: color-mix(in srgb, currentColor 7%, white);
   box-shadow: 0 0 0 4px color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.other-model {
+  grid-column: 1 / -1;
+  grid-template-columns: 26px 1fr;
+}
+
+.model-card input.other-model-input {
+  grid-column: 1 / -1;
+  width: calc(100% - 42px);
+  height: auto;
+  margin-left: 42px;
+  padding-top: 8px;
 }
 
 .blue {

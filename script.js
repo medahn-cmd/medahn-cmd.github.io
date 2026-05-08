@@ -1,4 +1,4 @@
-const CLOUD_ENDPOINT = "https://script.google.com/macros/s/AKfycbw4U1ZQoyqOyZrq-JKQSx1-LoD1-KndrWmTwd5eCmcnwySA9_qAmrVq7HHEW8L4wzMW/exec";
+const CLOUD_ENDPOINT = "https://script.google.com/a/macros/snu.ac.kr/s/AKfycbweJZi0rMPYFYJiTR-fBiwRZd_rDsDsi-2bNs15_EgKJyrW6og3EswQIZmboZ9GFTi3/exec";
 
 const form = document.querySelector("#worksheetForm");
 const statusMessage = document.querySelector("#statusMessage");
@@ -7,6 +7,7 @@ const downloadButton = document.querySelector("#downloadJson");
 function getFormData() {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
+  data.model = formData.getAll("model").join(", ");
   data.submittedAt = new Date().toISOString();
   return data;
 }
