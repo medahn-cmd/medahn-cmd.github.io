@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>지역사회기반 교육과정 사례 작성 워크시트</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <h1>지역사회기반 교육과정 사례 작성 워크시트</h1>
+        <p>주요 교육과정 모델 유형을 바탕으로 사례를 간단히 정리하는 1페이지 양식</p>
+      </header>
+
+      <form id="worksheetForm" class="worksheet">
+        <section class="panel">
+          <h2><span>1.</span> 기본 정보</h2>
+          <div class="info-grid">
+            <label>
+              대학명
+              <input name="university" type="text" autocomplete="organization" required />
+            </label>
+            <label>
+              교육과정/교과목명
+              <input name="courseName" type="text" required />
+            </label>
+            <label>
+              담당 교수
+              <input name="professor" type="text" autocomplete="name" />
+            </label>
+            <label>
+              연락처(이메일)
+              <input name="email" type="email" autocomplete="email" />
+            </label>
+            <label>
+              운영 학년
+              <input name="grade" type="text" />
+            </label>
+            <label>
+              운영 시기·기간
+              <input name="period" type="text" />
+            </label>
+          </div>
+          <div class="check-row">
+            <fieldset>
+              <legend>교과 구분</legend>
+              <label><input type="radio" name="courseType" value="정규" /> 정규</label>
+              <label><input type="radio" name="courseType" value="선택" /> 선택</label>
+              <label><input type="radio" name="courseType" value="비교과" /> 비교과</label>
+            </fieldset>
+            <fieldset>
+              <legend>학점</legend>
+              <label><input type="radio" name="creditsType" value="있음" /> 있음</label>
+              <input class="credit-input" name="credits" type="text" aria-label="학점 수" />
+              <label><input type="radio" name="creditsType" value="없음" /> 없음</label>
+            </fieldset>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2><span>2.</span> 교육과정 모델 선택</h2>
+          <div class="model-grid">
+            <label class="model-card blue">
+              <input type="radio" name="model" value="Model 01 지역기반 통합 프리셉션형" required />
+              <strong><span>Model 01</span> 지역기반 통합 프리셉션형</strong>
+              <em>핵심: 지역-임상 통합 경험</em>
+            </label>
+            <label class="model-card teal">
+              <input type="radio" name="model" value="Model 02 지역사회보건 건강문제 해결형" />
+              <strong><span>Model 02</span> 지역사회보건 건강문제 해결형</strong>
+              <em>핵심: 건강문제 분석 및 보건기획 역량</em>
+            </label>
+            <label class="model-card purple">
+              <input type="radio" name="model" value="Model 03 지역공공보건 임상몰입형" />
+              <strong><span>Model 03</span> 지역공공보건 임상몰입형</strong>
+              <em>핵심: 공공병원 연계 임상경험</em>
+            </label>
+            <label class="model-card orange">
+              <input type="radio" name="model" value="Model 04 지역사회 계열성(일차의료) 중심형" />
+              <strong><span>Model 04</span> 지역사회 계열성(일차의료) 중심형</strong>
+              <em>핵심: 지역 개원가 현장형 일차의료 경험</em>
+            </label>
+          </div>
+          <label class="wide-text">
+            선택한 모델의 이유
+            <textarea name="modelReason" rows="3"></textarea>
+          </label>
+        </section>
+
+        <section class="panel">
+          <h2><span>3.</span> 핵심 구성</h2>
+          <div class="composition">
+            <label><span class="row-heading"><span class="icon blue">◎</span> 핵심 포커스</span><textarea name="focus" rows="2"></textarea></label>
+            <label><span class="row-heading"><span class="icon teal">♙</span> 실습/학습 구조</span><textarea name="learningStructure" rows="2"></textarea></label>
+            <label><span class="row-heading"><span class="icon purple">◌</span> 주요 학습경험</span><textarea name="learningExperience" rows="2"></textarea></label>
+            <label><span class="row-heading"><span class="icon orange">▤</span> 대표 산출물</span><textarea name="deliverable" rows="2"></textarea></label>
+            <label><span class="row-heading"><span class="icon navy">☑</span> 평가 방법</span><textarea name="evaluation" rows="2"></textarea></label>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2><span>4.</span> 운영 포인트 및 지원 필요</h2>
+          <div class="support-grid">
+            <label>
+              <span class="support-title blue">▥ 연계 기관/협력 자원</span>
+              <textarea name="partnerResources" rows="4"></textarea>
+            </label>
+            <label>
+              <span class="support-title teal">⚙ 운영 시 고려사항</span>
+              <textarea name="operationNotes" rows="4"></textarea>
+            </label>
+            <label>
+              <span class="support-title purple">♡ 필요한 지원</span>
+              <textarea name="neededSupport" rows="4"></textarea>
+            </label>
+            <label>
+              <span class="support-title orange">▰ 확산 가능성/기대효과</span>
+              <textarea name="expectedEffect" rows="4"></textarea>
+            </label>
+          </div>
+        </section>
+
+        <div class="actions">
+          <p>※ 학술대회 사례 공유 및 모델별 비교를 위한 공통 양식</p>
+          <button type="submit">제출하기</button>
+          <button type="button" id="downloadJson" class="secondary">응답 파일 저장</button>
+        </div>
+        <p id="statusMessage" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
