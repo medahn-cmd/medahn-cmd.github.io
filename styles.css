@@ -254,6 +254,11 @@ input[type="checkbox"] {
   min-height: 92px;
 }
 
+.other-model strong {
+  justify-self: start;
+  align-self: center;
+}
+
 .model-card input.other-model-input {
   grid-column: 1 / -1;
   width: calc(100% - 42px);
