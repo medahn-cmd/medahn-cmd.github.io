@@ -1,4 +1,4 @@
-const CLOUD_ENDPOINT = "https://script.google.com/a/macros/snu.ac.kr/s/AKfycbweJZi0rMPYFYJiTR-fBiwRZd_rDsDsi-2bNs15_EgKJyrW6og3EswQIZmboZ9GFTi3/exec";
+const CLOUD_ENDPOINT = "https://script.google.com/macros/s/AKfycbwgykAujBxcFix6U9g1_ytaijoPouKCOb-V-CoRcDr4oqXfHe15w5HQnayR5edeAmuS/exec";
 
 const form = document.querySelector("#worksheetForm");
 const statusMessage = document.querySelector("#statusMessage");
