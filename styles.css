@@ -251,6 +251,7 @@ input[type="checkbox"] {
 .other-model {
   grid-column: 1 / -1;
   grid-template-columns: 26px 1fr;
+  min-height: 92px;
 }
 
 .model-card input.other-model-input {
