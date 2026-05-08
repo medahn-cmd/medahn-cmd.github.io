@@ -233,6 +233,12 @@ input[type="checkbox"] {
   background: var(--orange);
 }
 
+.model-card-04 strong {
+  gap: 12px;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
 .model-card em {
   grid-column: 1 / -1;
   padding: 14px 18px;
