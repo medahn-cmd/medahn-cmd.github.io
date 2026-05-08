@@ -45,45 +45,28 @@ function syncFormState(clone, source) {
 
 async function captureWorksheetImage() {
   const page = document.querySelector(".page");
-  const clone = page.cloneNode(true);
-  syncFormState(clone, page);
+  if (!window.html2canvas) {
+    throw new Error("html2canvas is not loaded");
+  }
 
-  clone.querySelector(".actions")?.remove();
-  clone.querySelector("#statusMessage")?.remove();
-  clone.style.width = `${page.offsetWidth}px`;
-  clone.style.minHeight = "auto";
+  const actions = page.querySelector(".actions");
+  const status = page.querySelector("#statusMessage");
+  const previousActionsDisplay = actions?.style.display;
+  const previousStatusDisplay = status?.style.display;
 
-  const wrapper = document.createElement("div");
-  wrapper.setAttribute("xmlns", "http://www.w3.org/1999/xhtml");
-  wrapper.appendChild(clone);
+  if (actions) actions.style.display = "none";
+  if (status) status.style.display = "none";
 
-  const serialized = new XMLSerializer().serializeToString(wrapper);
-  const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="${page.offsetWidth}" height="${page.scrollHeight}">
-      <foreignObject width="100%" height="100%">${serialized}</foreignObject>
-    </svg>
-  `;
-
-  const image = new Image();
-  const svgBlob = new Blob([svg], { type: "image/svg+xml;charset=utf-8" });
-  const url = URL.createObjectURL(svgBlob);
-
-  await new Promise((resolve, reject) => {
-    image.onload = resolve;
-    image.onerror = reject;
-    image.src = url;
+  const canvas = await window.html2canvas(page, {
+    backgroundColor: "#ffffff",
+    scale: 2,
+    useCORS: true,
+    windowWidth: page.scrollWidth,
+    windowHeight: page.scrollHeight,
   });
 
-  const canvas = document.createElement("canvas");
-  canvas.width = page.offsetWidth * 2;
-  canvas.height = page.scrollHeight * 2;
-
-  const context = canvas.getContext("2d");
-  context.scale(2, 2);
-  context.fillStyle = "#ffffff";
-  context.fillRect(0, 0, page.offsetWidth, page.scrollHeight);
-  context.drawImage(image, 0, 0);
-  URL.revokeObjectURL(url);
+  if (actions) actions.style.display = previousActionsDisplay || "";
+  if (status) status.style.display = previousStatusDisplay || "";
 
   return canvas.toDataURL("image/png");
 }
