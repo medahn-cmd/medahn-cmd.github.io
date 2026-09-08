@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "placeholder": true,
+  "projects": [
+    {
+      "id": "project-01",
+      "title": "교육과정 혁신",
+      "summary": "교육과정의 변화와 새로운 학습 경험을 담을 공간입니다.",
+      "overview": "",
+      "department": "",
+      "period": "",
+      "goal": "",
+      "activities": [],
+      "outcomes": [],
+      "resources": []
+    },
+    {
+      "id": "project-02",
+      "title": "임상실습 고도화",
+      "summary": "임상교육과 실습 운영의 개선 내용을 담을 공간입니다.",
+      "overview": "",
+      "department": "",
+      "period": "",
+      "goal": "",
+      "activities": [],
+      "outcomes": [],
+      "resources": []
+    },
+    {
+      "id": "project-03",
+      "title": "교수역량 강화",
+      "summary": "교수자의 교육역량 개발과 교수법 사례를 담을 공간입니다.",
+      "overview": "",
+      "department": "",
+      "period": "",
+      "goal": "",
+      "activities": [],
+      "outcomes": [],
+      "resources": []
+    },
+    {
+      "id": "project-04",
+      "title": "디지털 교육환경",
+      "summary": "디지털 학습 기반과 교육환경의 변화를 담을 공간입니다.",
+      "overview": "",
+      "department": "",
+      "period": "",
+      "goal": "",
+      "activities": [],
+      "outcomes": [],
+      "resources": []
+    },
+    {
+      "id": "project-05",
+      "title": "학생 성장 지원",
+      "summary": "학생의 학습과 성장 지원에 관한 내용을 담을 공간입니다.",
+      "overview": "",
+      "department": "",
+      "period": "",
+      "goal": "",
+      "activities": [],
+      "outcomes": [],
+      "resources": []
+    },
+    {
+      "id": "project-06",
+      "title": "지역사회 연계",
+      "summary": "지역사회와 함께하는 교육 및 협력 사례를 담을 공간입니다.",
+      "overview": "",
+      "department": "",
+      "period": "",
+      "goal": "",
+      "activities": [],
+      "outcomes": [],
+      "resources": []
+    }
+  ]
+}
