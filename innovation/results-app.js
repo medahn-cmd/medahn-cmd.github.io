@@ -7,7 +7,7 @@ const find=id=>projects.find(p=>p.id===id);
 const group=p=>groups.find(g=>g.id===p.group);
 const total=projects.reduce((n,p)=>n+p.sections.length,0);
 const sectionTitle=s=>s.title.replace(/^[ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]+\.\s*/,'');
-const source=p=>`<div class="source"><b>근거 자료</b>${e(p.title)} · 1차년도 사업 결과</div>`;
+const source=p=>`<div class="source"><b>근거 자료</b>${e(p.title)} · 1차년도 사업 결과${p.draft?' (초안)':''}</div>`;
 const metric=p=>p.metrics.length?`<div class="metrics">${p.metrics.map(m=>`<div class="metric"><b>${e(m[0])}</b><span>${e(m[1])}</span></div>`).join('')}</div>`:'';
 const records=p=>`<div class="record-links">${p.sections.map((s,i)=>`<a class="record-link" href="${url(p)}/record/${i}">${e(sectionTitle(s))}<span aria-hidden="true">↗</span></a>`).join('')}</div>`;
 const themes={
@@ -20,9 +20,10 @@ for(const p of projects){
   if(p.id==='mental-health')sec.html=sec.html.replace(/<p class="pdf-text">([\s\S]*?)<\/p>/g,(_,t)=>'<p class="pdf-text">'+t.replace(/<br\s*\/?>/g,' ').replace(/(다\.)\s+/g,'$1</p><p class="pdf-text">')+'</p>').replace(/(<t[dh][^>]*>)([\s\S]*?)(<\/t[dh]>)/g,(_,a,b,c)=>a+b.replace(/<br\s*\/?>/g,' ')+c);
  }
 }
-find('community').lead='지역·필수·공공의료 경험을 통합 6년제 교육과정과 연결합니다. 개별 과제 결과는 추후 업데이트됩니다.';
+
 find('mental-health').next='전국 모니터링과 대학별 실행·평가를 확대하고, 상담 가이드북과 교수 워크숍의 활용을 점검합니다. 학생 참여를 통해 지원체계의 접근성과 실효성을 개선하는 방향을 제안합니다.';
 function focusResult(p){
+ const visual=window.RESULT_VISUALS?.render(p);if(visual)return visual;
  if(p.id==='mental-health')return `<section class="spotlight"><div><p class="eyebrow">STUDENT WELLBEING</p><h2>학생의 경험에서<br>지원의 방향을 찾다</h2><p>분석 표본 3,313명의 잠재프로파일 분포</p></div><div class="profile-bars">${[['안정군',24.6,'#327971'],['중간위험군',39.9,'#6588ba'],['잠재위험군',11.4,'#b18a3a'],['고위험군',24.1,'#ac657c']].map(([n,v,c])=>`<div class="profile-row"><span>${n}</span><div><i style="width:${v}%;background:${c}"></i></div><b>${v}%</b></div>`).join('')}<small>통계적 분류이며 임상진단이나 전국 유병률이 아닙니다.</small></div></section>`;
  if(p.id==='integrated-six-year')return `<section class="spotlight"><div><p class="eyebrow">SIX YEARS, MANY PATHWAYS</p><h2>하나의 공통 기반,<br>여섯 가지 성장 경로</h2></div><div class="track-grid">${['의사과학자','지역사회의료','미래의료·디지털헬스','의료경영·정책','국제보건·글로벌헬스','교수요원'].map(t=>`<span>${t}</span>`).join('')}</div></section>`;
  if(p.id==='question-bank')return `<section class="spotlight"><div><p class="eyebrow">ASSESSMENT FOR LEARNING</p><h2>평가의 결과가<br>다음 학습으로</h2></div><div class="learning-cycle"><span>문항 축적·표준화</span><b>→</b><span>평가·학습 진단</span><b>→</b><span>복습·추천 학습</span></div></section>`;
